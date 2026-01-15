@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redefinindo senha...</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Redirecionando para o aplicativo...</h2>
+  <p>Caso nada aconteça, abra o app manualmente.</p>
+
+  <script>
+    const hash = window.location.hash;
+
+    if (hash.includes("access_token")) {
+      const fullURL = "celiapbr://reset-password" + hash;
+      window.location.href = fullURL;
+    } else {
+      document.body.innerHTML = "<h2>Link inválido</h2><p>O token de redefinição não foi encontrado.</p>";
+    }
+  </script>
+</body>
+</html>
